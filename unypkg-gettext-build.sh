@@ -75,7 +75,6 @@ get_include_paths
 #unset LD_RUN_PATH
 
 ./configure --prefix=/uny/pkg/"$pkgname"/"$pkgver" \
-    --disable-static \
     --docdir=/uny/pkg/"$pkgname"/"$pkgver"/share/doc/gettext
 
 make -j"$(nproc)"
