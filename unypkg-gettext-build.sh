@@ -81,9 +81,11 @@ libunistring_dir=(/uny/pkg/libunistring/*)
 
 ./configure --prefix=/uny/pkg/"$pkgname"/"$pkgver" \
     --disable-static \
-    --docdir=/uny/pkg/"$pkgname"/"$pkgver"/share/doc/gettext \
+    --disable-man \
     --with-libxml2-prefix="${libxml2_dir[0]}" \
     --with-libunistring-prefix="${libunistring_dir[0]}"
+
+#     --docdir=/uny/pkg/"$pkgname"/"$pkgver"/share/doc/gettext \
 
 make -j"$(nproc)"
 make -j"$(nproc)" check
