@@ -52,8 +52,6 @@ git_clone_source_repo
 #./autogen.sh
 #cd /uny/sources || exit
 
-rm -rf /uny/pkg/gettext
-
 archiving_source
 
 ######################################################################################################################
@@ -87,6 +85,8 @@ make -j"$(nproc)" check
 
 make install
 chmod -v 0755 /uny/pkg/"$pkgname"/"$pkgver"/lib/preloadable_libintl.so
+
+rm -rf /uny/pkg/gettext/0.22*
 
 ####################################################
 ### End of individual build script
