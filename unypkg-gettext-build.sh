@@ -12,7 +12,7 @@ set -vx
 wget -qO- uny.nu/pkg | bash -s buildsys
 
 ### Installing build dependencies
-unyp install python gperf re2c libxml2 groff
+unyp install python gperf re2c libxml2 groff git libunistring
 
 ### Getting Variables from files
 UNY_AUTO_PAT="$(cat UNY_AUTO_PAT)"
@@ -76,9 +76,14 @@ get_include_paths
 
 ./autogen.sh
 
+libxml2_dir=(/uny/pkg/libxml2/*)
+libunistring_dir=(/uny/pkg/libunistring/*)
+
 ./configure --prefix=/uny/pkg/"$pkgname"/"$pkgver" \
     --disable-static \
-    --docdir=/uny/pkg/"$pkgname"/"$pkgver"/share/doc/gettext
+    --docdir=/uny/pkg/"$pkgname"/"$pkgver"/share/doc/gettext \
+    --with-libxml2-prefix="${libxml2_dir[0]}" \
+    --with-libunistring-prefix="${libunistring_dir[0]}"
 
 make -j"$(nproc)"
 make -j"$(nproc)" check
