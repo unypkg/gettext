@@ -74,14 +74,14 @@ get_include_paths
 
 #unset LD_RUN_PATH
 
+rm -rf /uny/pkg/gettext/0.22*
+
 ./configure --prefix=/uny/pkg/"$pkgname"/"$pkgver" \
     --disable-static \
     --docdir=/uny/pkg/"$pkgname"/"$pkgver"/share/doc/gettext
 
 make -j"$(nproc)"
 make -j"$(nproc)" check
-
-rm -rf /uny/pkg/gettext/0.22*
 
 make install
 chmod -v 0755 /uny/pkg/"$pkgname"/"$pkgver"/lib/preloadable_libintl.so
