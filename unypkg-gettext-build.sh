@@ -48,9 +48,11 @@ echo "newer" >release-"$pkgname"
 
 git_clone_source_repo
 
-cd "$pkg_git_repo_dir" || exit
-./autogen.sh
-cd /uny/sources || exit
+#cd "$pkg_git_repo_dir" || exit
+#./autogen.sh
+#cd /uny/sources || exit
+
+rm -rf /uny/pkg/gettext
 
 archiving_source
 
@@ -74,7 +76,7 @@ get_include_paths
 
 #unset LD_RUN_PATH
 
-rm -rf /uny/pkg/gettext/0.22*
+./autogen.sh
 
 ./configure --prefix=/uny/pkg/"$pkgname"/"$pkgver" \
     --disable-static \
