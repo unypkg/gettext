@@ -6,13 +6,13 @@ set -vx
 ######################################################################################################################
 ### Setup Build System and GitHub
 
-apt install -y pkg-config build-essential autoconf bison re2c \
-    libxml2-dev
+#apt install -y pkg-config build-essential autoconf bison re2c \
+#    libxml2-dev
 
 wget -qO- uny.nu/pkg | bash -s buildsys
 
 ### Installing build dependencies
-unyp install python gperf
+unyp install python gperf re2c libxml2
 
 ### Getting Variables from files
 UNY_AUTO_PAT="$(cat UNY_AUTO_PAT)"
