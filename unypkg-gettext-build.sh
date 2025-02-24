@@ -80,6 +80,7 @@ libxml2_dir=(/uny/pkg/libxml2/*)
 libunistring_dir=(/uny/pkg/libunistring/*)
 
 ./configure --prefix=/uny/pkg/"$pkgname"/"$pkgver" \
+    --with-included-gettext \
     --disable-static \
     --disable-man \
     --with-libxml2-prefix="${libxml2_dir[0]}" \
